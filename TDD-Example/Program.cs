@@ -1,18 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using HTTPConnection;
+using TDD_Example;
 
-Console.WriteLine("Hello, World!");
 
-//IClient _client = new Client();
-//HttpResponseMessage _response = null;
-//try
-//{
-//    _response = _client.GetAsync("");
-//}
 
-//catch (Exception  e)
-//{
-//    Console.WriteLine(e.Message);
-//}
+IClient client = new Client();
+StatusCheck check = new StatusCheck(client);
 
-//var x = _response.IsSuccessStatusCode;
+
+string url = "htt://www.google.com";
+
+if(check.WebsiteIsRunning(url))
+    Console.WriteLine("WEBSITE IS RUNNING");
+else
+    Console.WriteLine("WEBSITE DOWN");
